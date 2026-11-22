@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* Палитр: #0f1020 #2f195f #7353ba #faa6ff #efc3f5. static = CSS хувьсагчийг JS уншина */
+@theme static {
+  --color-bg: #f8e9fb;
+  --color-fg: #0f1020;
+  --color-line: #2f195f;
+  --color-ac: #7353ba;
+  --color-gold: #c43ed6;
+  --color-pn: #ffffff;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-display: "Source Serif 4", Georgia, serif;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0f1020;
+  --color-fg: #efc3f5;
+  --color-line: #7353ba;
+  --color-ac: #faa6ff;
+  --color-gold: #efc3f5;
+  --color-pn: #2f195f;
+}
+
+body { margin: 0; background: var(--color-bg); }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+
+/* Нүүр хэсгийн анимэйшн */
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .6s cubic-bezier(.2, .8, .2, 1) both; }
+
+/* Scroll-д орж ирэх анимэйшн: .in класс нэмэгдэх бүрт шинээр тоглоно */
+@keyframes rv-up    { from { opacity: 0; transform: translateY(36px) scale(.97); filter: blur(6px); } to { opacity: 1; transform: none; filter: blur(0); } }
+@keyframes rv-down  { from { opacity: 0; transform: translateY(-36px) scale(.97); filter: blur(6px); } to { opacity: 1; transform: none; filter: blur(0); } }
+@keyframes rv-left  { from { opacity: 0; transform: translateX(-56px); filter: blur(6px); } to { opacity: 1; transform: none; filter: blur(0); } }
+@keyframes rv-right { from { opacity: 0; transform: translateX(56px); filter: blur(6px); } to { opacity: 1; transform: none; filter: blur(0); } }
+
+[data-reveal] { opacity: 0; }
+[data-reveal].in { opacity: 1; animation: rv-up .8s cubic-bezier(.2, .8, .2, 1) backwards; }
+[data-reveal][data-from="top"].in { animation-name: rv-down; }
+[data-reveal="left"].in { animation-name: rv-left; }
+[data-reveal="right"].in { animation-name: rv-right; }
+
+/* Ур чадварын багана: хэсэг дахин орох бүрт дахин дүүрнэ */
+.bar { width: 0; transition: width 1.4s cubic-bezier(.2, .8, .2, 1) .3s; }
+.in .bar { width: var(--w); }
+
+/* Хөвөгч чипүүд */
+@keyframes floaty {
+  0%, 100% { transform: translate(0, 0) rotate(var(--r, 0deg)); }
+  50% { transform: translate(var(--dx, 0), var(--dy, -8px)) rotate(calc(var(--r, 0deg) * -1)); }
+}
+.float-chip { animation: floaty var(--d, 5s) ease-in-out var(--dl, 0s) infinite; }
+.float-chip:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; }
+  [data-reveal], [data-reveal].in { opacity: 1; animation: none; }
+  .float-chip { animation: none; }
+  .bar { width: var(--w); transition: none; }
+}

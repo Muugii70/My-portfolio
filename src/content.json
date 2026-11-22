@@ -1,0 +1,96 @@
+{
+  "email": "amgalan7096@gmail.com",
+  "phone": "95196651",
+  "github": "https://github.com/Muugii70",
+  "linkedin": "https://www.linkedin.com/in/moogii-moogii-70352a451",
+  "cv": { "file": "/docs/CV-Munkh-Amgalan.pdf" },
+  "skills": [
+    { "n": "Microsoft Word", "v": 80 },
+    { "n": "Microsoft Excel", "v": 70 },
+    { "n": "Microsoft SQL Server", "v": 60 },
+    { "n": "Microsoft Power BI", "v": 50 },
+    { "n": "Microsoft PowerPoint", "v": 50 },
+    { "n": "Figma", "v": 50 },
+    { "n": "Python", "v": 40 },
+    { "n": "Visual Studio Code", "v": 30 }
+  ],
+  "mn": {
+    "name": "С.Мөнх-Амгалан",
+    "hello": "Сайн уу, Хамтдаа миний мэдээлэлтэй танилцья",
+    "role": "Санхүү удирдлага >> Дата аналист << Мэдээллийн систем",
+    "tagline": "Санхүүгийн мэдлэг, өгөгдлийн хэлийг холбож, бизнесийн шийдвэрийг тоогоор тодруулна.",
+    "about": "СЭЗИС-ийн “Санхүүгийн удирдлага” мэргэжлээр 2025 онд бакалаврын зэрэг амжилттай горилж, хос мэргэжлийн хөтөлбөрөөр “Мэдээллийн систем” мэргэжлээр 2026 оны өвөл төгсөнө. Нягтлан бодох бүртгэл, харилцагчийн үйлчилгээ, борлуулалтын туршлагатай бөгөөд MSSQL, Power BI, Python, Excel ашиглан дүн шинжилгээ хийх чадвартай. Санхүү ба мэдээллийн системийн мэдлэгээ хослуулан бизнес хөгжил, дата аналистаар ажиллаж, бизнесийн өсөлтөд хувь нэмэр оруулахыг зорьж байна.",
+    "hobby": "Хобби: кино үзэх, нэхэж оёх, хумс хийх, биллиард, боулинг, ууланд алхах.",
+    "career": [
+      { "k": "job", "t": "Харилцагчийн үйлчилгээний инженер", "o": "Онтайм Технологи ХХК (MCS групп)", "p": "2025.09 – 2026.06", "d": "Кассын программын сургалт, зөвлөгөө өгч, программ дээр үүссэн асуудал, доголдлыг засварлан шаардлагатай мэдээллээр хангах." },
+      { "k": "edu", "t": "Мэдээллийн систем (хос мэргэжил)", "o": "СЭЗИС", "p": "2023 – 2026 өвөл", "d": "Бакалаврын хөтөлбөр. 2026 оны өвөл төгсөнө." },
+      { "k": "job", "t": "Мэргэжлийн дадлага", "o": "Би Ди Сек", "p": "2024.06 – 2024.08", "d": "Ерөнхий нягтлангийн удирдлага дор гүйлгээ тооцоо хөтлөлт, баримт бичиг цэгцлэх, шивэх." },
+      { "k": "job", "t": "Борлуулалтын ажилтан", "o": "Мандал Ассет Менежмент", "p": "2022.10 – 2023.10", "d": "«Мандал Хуримтлалын апп»-ийг хэрэглэгчдэд тайлбарлаж, таниулан сурталчилах." },
+      { "k": "edu", "t": "Санхүүгийн менежмент", "o": "СЭЗИС", "p": "2021 – 2025", "d": "Бакалавр. Дипломын сэдэв: Хувьцааны өгөөжид макро эдийн засгийн үзүүлэх нөлөөг машин сургалтын аргаар тооцоолох нь." },
+      { "k": "edu", "t": "Арван жил", "o": "33-р сургууль", "p": "2021", "d": "Дунд боловсрол." }
+    ],
+    "pr": [
+      { "k": "Дипломын ажил", "n": "Хувьцааны өгөөжид макро эдийн засгийн үзүүлэх нөлөөг машин сургалтаар тооцоолох", "d": "Санхүүгийн удирдлага мэргэжлийн дипломын ажил. Макро эдийн засгийн үзүүлэлтүүд хувьцааны өгөөжид хэрхэн нөлөөлдгийг машин сургалтын аргаар тооцоолсон.", "tags": ["Машин сургалт", "Макро эдийн засаг", "Хувьцаа"], "pdf": "/docs/thesis.pdf", "img": "/img/thesis.svg" },
+      { "k": "Эрдэм шинжилгээний ажил", "n": "Амьдралын даатгал, тэтгэврийн сангийн үйл ажиллагаа", "d": "Амьдралын даатгал болон тэтгэврийн сангийн үйл ажиллагааг судалсан эрдэм шинжилгээний ажил.", "tags": ["Даатгал", "Тэтгэврийн сан", "Судалгаа"], "pdf": "/docs/research.pdf", "img": "/img/research.svg" },
+      { "k": "Бүтээсэн систем", "n": "Салоны цаг захиалгын систем", "d": "Салоны үйлчилгээнд онлайнаар цаг захиалах вэб систем. SWE334 хичээлийн хүрээнд бүтээсэн.", "tags": ["Вэб систем", "SWE334"], "u": "https://swe334salon.vercel.app/", "img": "/img/salon.svg" }
+    ],
+    "awards": [
+      { "t": "FINTASTIC MINDS 2022 тэмцээн", "r": "Гутгаар байр", "y": "2022" },
+      { "t": "«Даатгалын зах зээлийн сорилтууд ба шийдлүүд» ЭШХ", "r": "Тусгай байр", "y": "2024" }
+    ],
+    "pro": ["Нягтлан бодох бүртгэл", "Тооцоолол, статистик шинжилгээ", "Бизнесийн шинжилгээ", "Өгөгдөл боловсруулах, дүн шинжилгээ", "Бичиг баримттай харьцах"],
+    "per": ["Төвлөрөл, нягт нямбай", "Хөдөлмөрч, шаргуу", "Тэвчээртэй", "Логик сэтгэлгээ", "Багаар ажиллах", "Анхааралтай сонсох", "Асуудал шийдвэрлэх", "Цагийн менежмент"],
+    "zn": ["Танилцуулга", "Миний тухай", "Бүтээлүүд", "Холбоо барих"],
+    "lv": "Түвшин", "fin": "Дууссан ✓", "skip": "Шууд үзэх", "back": "◀ Тоглоом руу буцах",
+    "next": "Баруун тийш яваарай.", "coins": "Дараагийн самбар болон зоосуудыг цуглуулж замнал, ур чадвараа үзээрэй.",
+    "aboutT": "Миний тухай", "careerT": "Миний товч намтар", "works": "Бүтээлүүд", "contactT": "Холбоо барих",
+    "skillsT": "Ур чадвар", "progT": "Компьютерын програм", "proT": "Мэргэжлийн ур чадвар", "perT": "Хувийн ур чадвар", "awardsT": "Шагнал урамшуулал",
+    "msg": "Хамтдаа ажиллацгаая.", "mail": "Имэйл", "phone": "Утас", "view": "Үзэх",
+    "cvView": "CV үзэх", "cvDl": "CV татах", "cvOpen": "Шинэ цонхонд нээх", "pdfView": "PDF үзэх", "pdfDl": "Татах", "site": "Сайт руу орох",
+    "up": "Түвшин ахилаа! Баруун хаалга нээгдлээ", "all": "Бүх түвшин дууслаа. Баяр хүргэе!",
+    "egg": "Нууц нээгдлээ: дата бол шинэ газрын тос!", "act": "Space эсвэл A товч: нээх",
+    "gate": "Хаалга хаалттай. Энэ түвшний бүх зүйлийг үзээрэй.", "move": "◀ ▶ сумаар хөдөл",
+    "open": "нээлттэй", "shut": "хаалттай", "close": "Хаах"
+  },
+  "en": {
+    "name": "S. Munkh-Amgalan",
+    "hello": "Hi, let’s get to know me together",
+    "role": "Data analyst · Finance & Information Systems",
+    "tagline": "I connect finance with data to turn numbers into business decisions.",
+    "about": "I graduated from UFE with a bachelor’s degree in Financial Management in 2025 and finish my second degree in Information Systems in winter 2026. I worked as a customer service engineer at Ontime Technology and have experience in accounting and sales. I analyse data with MSSQL, Power BI, Python and Excel.",
+    "hobby": "Hobbies: movies, knitting and sewing, nail art, billiards, bowling, hiking.",
+    "career": [
+      { "k": "job", "t": "Customer Service Engineer", "o": "Ontime Technology LLC (MCS Group)", "p": "2025.09 – 2026.06", "d": "Trained and advised users on the cashier software, fixed issues and faults, and provided the information they needed." },
+      { "k": "edu", "t": "Information Systems (double major)", "o": "UFE", "p": "2023 – winter 2026", "d": "Bachelor’s program. Graduating in winter 2026." },
+      { "k": "job", "t": "Professional Intern", "o": "BDSec", "p": "2024.06 – 2024.08", "d": "Under the chief accountant: recorded transactions, organized and entered documents." },
+      { "k": "job", "t": "Sales Associate", "o": "Mandal Asset Management", "p": "2022.10 – 2023.10", "d": "Explained and promoted the “Mandal Savings” app to customers." },
+      { "k": "edu", "t": "Financial Management", "o": "UFE", "p": "2021 – 2025", "d": "Bachelor’s degree. Thesis: estimating the effect of macroeconomic factors on stock returns with machine learning." },
+      { "k": "edu", "t": "Secondary school", "o": "School No. 33", "p": "2021", "d": "Secondary education." }
+    
+    ],
+    "pr": [
+      { "k": "Thesis", "n": "Estimating the effect of macroeconomic factors on stock returns with machine learning", "d": "Bachelor’s thesis in Financial Management. Estimates how macroeconomic indicators affect stock returns using machine learning.", "tags": ["Machine learning", "Macroeconomics", "Stocks"], "pdf": "/docs/thesis.pdf", "img": "/img/thesis.svg" },
+      { "k": "Research paper", "n": "Life insurance and pension fund operations", "d": "A research paper on how life insurance and pension funds operate.", "tags": ["Insurance", "Pension fund", "Research"], "pdf": "/docs/research.pdf", "img": "/img/research.svg" },
+      { "k": "Built system", "n": "Salon booking system", "d": "A web system for booking salon appointments online, built for the SWE334 course.", "tags": ["Web system", "SWE334"], "u": "https://swe334salon.vercel.app/", "img": "/img/salon.svg" }
+    ],
+    "awards": [
+      { "t": "FINTASTIC MINDS 2022 competition", "r": "3rd place", "y": "2022" },
+      { "t": "“Insurance market challenges and solutions” research conference", "r": "Special prize", "y": "2024" }
+    ],
+    "pro": ["Accounting", "Calculation and statistical analysis", "Business analysis", "Data processing and analysis", "Working with documents"],
+    "per": ["Focus and attention to detail", "Hard-working", "Patient", "Logical thinking", "Teamwork", "Active listening", "Problem solving", "Time management"],
+    "lang": "English — Intermediate",
+    "zn": ["Intro", "About me", "Projects", "Contact"],
+    "lv": "Level", "fin": "Done ✓", "skip": "Skip the game", "back": "◀ Back to the game",
+    "next": "Head to the right.", "coins": "Open the next sign and collect the coins to see my career and skills.",
+    "aboutT": "About me", "careerT": "My career", "works": "Projects", "contactT": "Contact",
+    "skillsT": "Skills", "progT": "Software", "proT": "Professional skills", "perT": "Personal skills", "langT": "Languages", "awardsT": "Awards",
+    "msg": "Let’s work together.", "mail": "Email", "phone": "Phone", "view": "View",
+    "cvView": "View CV", "cvDl": "Download CV", "cvOpen": "Open in new tab", "pdfView": "View PDF", "pdfDl": "Download", "site": "Visit site",
+    "pdfFail": "PDF not showing? Open it in a new tab.",
+    "up": "Level up! The gate to the right is open", "all": "All levels complete. Congratulations!",
+    "egg": "Secret found: data is the new oil!", "act": "Space or A button: open",
+    "gate": "The gate is closed. Finish everything on this level.", "move": "Move with ◀ ▶",
+    "open": "open", "shut": "locked", "close": "Close"
+  }
+}

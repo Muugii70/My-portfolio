@@ -30,9 +30,9 @@
       { "k": "edu", "t": "Арван жил", "o": "33-р сургууль", "p": "2021", "d": "Дунд боловсрол." }
     ],
     "pr": [
-      { "k": "Дипломын ажил", "n": "Хувьцааны өгөөжид макро эдийн засгийн үзүүлэх нөлөөг машин сургалтаар тооцоолох", "d": "Санхүүгийн удирдлага мэргэжлийн дипломын ажил. Макро эдийн засгийн үзүүлэлтүүд хувьцааны өгөөжид хэрхэн нөлөөлдгийг машин сургалтын аргаар тооцоолсон.", "tags": ["Машин сургалт", "Макро эдийн засаг", "Хувьцаа"], "pdf": "/docs/thesis.pdf", "img": "/img/thesis.svg" },
+      { "k": "Дипломын ажил", "n": "Хувьцааны өгөөжид макро эдийн засгийн үзүүлэх нөлөөг машин сургалтаар тооцоолох", "d": "Санхүүгийн удирдлага мэргэжлийн дипломын ажил. Макро эдийн засгийн үзүүлэлтүүд хувьцааны өгөөжид хэрхэн нөлөөлдгийг машин сургалтын аргаар тооцоолсон.", "tags": ["Машин сургалт", "Макро эдийн засаг", "Хувьцаа"], "pdf": "/docs/thesis.pdf", "img": "/img/thesis.jpg" },
       { "k": "Эрдэм шинжилгээний ажил", "n": "Амьдралын даатгал, тэтгэврийн сангийн үйл ажиллагаа", "d": "Амьдралын даатгал болон тэтгэврийн сангийн үйл ажиллагааг судалсан эрдэм шинжилгээний ажил.", "tags": ["Даатгал", "Тэтгэврийн сан", "Судалгаа"], "pdf": "/docs/research.pdf", "img": "/img/research.svg" },
-      { "k": "Бүтээсэн систем", "n": "Салоны цаг захиалгын систем", "d": "Салоны үйлчилгээнд онлайнаар цаг захиалах вэб систем. SWE334 хичээлийн хүрээнд бүтээсэн.", "tags": ["Вэб систем", "SWE334"], "u": "https://swe334salon.vercel.app/", "img": "/img/salon.svg" }
+      { "k": "Бүтээсэн систем", "n": "Салоны цаг захиалгын систем", "d": "Салоны үйлчилгээнд онлайнаар цаг захиалах вэб систем. SWE334 хичээлийн хүрээнд бүтээсэн.", "tags": ["Вэб систем", "SWE334"], "u": "https://swe334salon.vercel.app/", "img": "/img/salon.jpg" }
     ],
     "awards": [
       { "t": "FINTASTIC MINDS 2022 тэмцээн", "r": "Гутгаар байр", "y": "2022" },
@@ -70,7 +70,7 @@
     ],
     "pr": [
       { "k": "Thesis", "n": "Estimating the effect of macroeconomic factors on stock returns with machine learning", "d": "Bachelor’s thesis in Financial Management. Estimates how macroeconomic indicators affect stock returns using machine learning.", "tags": ["Machine learning", "Macroeconomics", "Stocks"], "pdf": "/docs/thesis.pdf", "img": "/img/thesis.svg" },
-      { "k": "Research paper", "n": "Life insurance and pension fund operations", "d": "A research paper on how life insurance and pension funds operate.", "tags": ["Insurance", "Pension fund", "Research"], "pdf": "/docs/research.pdf", "img": "/img/research.svg" },
+      { "k": "Research paper", "n": "Life insurance and pension fund operations", "d": "A research paper on how life insurance and pension funds operate.", "tags": ["Insurance", "Pension fund", "Research"], "pdf": "/docs/research.pdf", "img": "/img/research.jpg" },
       { "k": "Built system", "n": "Salon booking system", "d": "A web system for booking salon appointments online, built for the SWE334 course.", "tags": ["Web system", "SWE334"], "u": "https://swe334salon.vercel.app/", "img": "/img/salon.svg" }
     ],
     "awards": [

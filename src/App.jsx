@@ -2,7 +2,13 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import data from "./content.json";
 import HeroChart from "./HeroChart.jsx";
 
-const btn = "cursor-pointer rounded-sm border-2 border-fg bg-pn px-3 py-1.5 outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-fg hover:text-bg hover:shadow-[3px_3px_0_var(--color-ac)] focus-visible:bg-fg focus-visible:text-bg active:translate-y-0 active:shadow-none motion-reduce:transition-none";
+// Нийтлэг загварууд
+const glass = "rounded-2xl border border-fg/10 bg-pn/60 backdrop-blur-md shadow-[0_8px_30px_-12px_rgba(0,0,0,.35)]";
+const lift = "transition duration-300 hover:-translate-y-1 hover:border-ac/50 hover:shadow-[0_18px_40px_-16px_var(--color-ac)] motion-reduce:transition-none";
+const btn = "cursor-pointer rounded-full border border-fg/15 bg-pn/60 px-4 py-1.5 backdrop-blur outline-none transition duration-200 hover:border-ac hover:text-ac focus-visible:ring-2 focus-visible:ring-ac active:scale-95 motion-reduce:transition-none";
+const solid = "inline-block cursor-pointer rounded-full bg-gradient-to-r from-ac to-gold px-5 py-2.5 font-semibold text-bg outline-none transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-8px_var(--color-ac)] focus-visible:ring-2 focus-visible:ring-ac focus-visible:ring-offset-2 focus-visible:ring-offset-bg motion-reduce:transition-none";
+const ghost = "inline-block cursor-pointer rounded-full border border-fg/20 bg-pn/40 px-5 py-2.5 font-semibold backdrop-blur outline-none transition duration-200 hover:-translate-y-0.5 hover:border-ac hover:text-ac focus-visible:ring-2 focus-visible:ring-ac motion-reduce:transition-none";
+
 const PATH = "M20 0 L8 90 L32 170 L10 260 L30 350 L12 430 L20 520";
 
 // Зүүн талын шугаман график: гүйлгэх тусам зурагдана, замналын үйл явдал бүр дээр цэгтэй
@@ -78,9 +84,10 @@ function GrowthLine({ lang }) {
 function Chapter({ id, title, children }) {
   return (
     <section id={id} className="mx-auto max-w-3xl px-5 py-20 md:pl-16">
-      <div data-reveal className="mb-10 h-px bg-[linear-gradient(to_right,var(--color-ac),transparent)]" />
-      <div data-reveal className="mb-8">
-        <h2 className="font-display text-3xl font-bold">{title}</h2>
+      <div data-reveal className="mb-8 flex items-center gap-3">
+        <span className="size-2.5 rounded-full bg-gradient-to-r from-ac to-gold shadow-[0_0_12px_var(--color-ac)]" />
+        <h2 className="font-display text-3xl font-bold tracking-tight">{title}</h2>
+        <span className="h-px flex-1 bg-gradient-to-r from-ac/50 to-transparent" />
       </div>
       {children}
     </section>
@@ -90,31 +97,27 @@ function Chapter({ id, title, children }) {
 function Timeline({ T, mn }) {
   const items = [...T.career].sort((a, b) => a.p.localeCompare(b.p));
   return (
-    <ol className="border-l-2 border-line pl-6">
+    <ol className="border-l border-fg/15 pl-7">
       {items.map((c) => (
         <li key={c.o + c.p} data-reveal data-milestone={c.p.slice(0, 4)} className="group relative mb-10 last:mb-0">
-          <span className={"absolute -left-[33px] top-1.5 size-4 rounded-full border-2 border-bg transition duration-500 group-data-[passed=true]:scale-125 group-data-[passed=true]:shadow-[0_0_14px_var(--color-ac)] " + (c.k === "edu" ? "bg-ac" : "bg-gold")} />
+          <span className={"absolute -left-[36px] top-1.5 size-3.5 rounded-full ring-4 ring-bg transition duration-500 group-data-[passed=true]:scale-125 group-data-[passed=true]:shadow-[0_0_14px_var(--color-ac)] " + (c.k === "edu" ? "bg-ac" : "bg-gold")} />
           <div className="text-xs opacity-70 transition duration-500 group-data-[passed=true]:font-bold group-data-[passed=true]:text-ac group-data-[passed=true]:opacity-100">
             {c.p} · {c.k === "edu" ? (mn ? "Боловсрол" : "Education") : (mn ? "Ажил" : "Work")}
           </div>
-          <div className="font-display text-xl font-bold">{c.t}</div>
+          <div className="mt-0.5 font-display text-xl font-bold tracking-tight">{c.t}</div>
           <div className="font-semibold text-ac">{c.o}</div>
-          <div className="mt-1">{c.d}</div>
+          <div className="mt-1 opacity-85">{c.d}</div>
         </li>
       ))}
     </ol>
   );
 }
 
-const chip = "rounded-sm border-2 border-fg bg-pn px-2.5 py-1 text-sm";
-const solid = "inline-block cursor-pointer rounded-sm border-2 border-fg bg-fg px-4 py-2 font-semibold text-bg outline-none transition duration-200 hover:-translate-y-0.5 hover:shadow-[3px_3px_0_var(--color-ac)] focus-visible:shadow-[3px_3px_0_var(--color-ac)] motion-reduce:transition-none";
-const ghost = "inline-block cursor-pointer rounded-sm border-2 border-fg bg-pn px-4 py-2 font-semibold outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-fg hover:text-bg hover:shadow-[3px_3px_0_var(--color-ac)] focus-visible:bg-fg focus-visible:text-bg motion-reduce:transition-none";
-
 // Хөвж буй чипүүд: чип бүр өөр хурд, чиглэл, хоцролттой хөдөлнө
 function FloatChips({ items, variant }) {
   const pro = variant === "pro";
   return (
-    <ul className="flex flex-wrap justify-center gap-x-4 gap-y-6 rounded-sm border-2 border-dashed border-line/50 bg-[radial-gradient(circle_at_20%_0%,color-mix(in_srgb,var(--color-ac)_16%,transparent),transparent_60%)] px-5 py-9">
+    <ul className="flex flex-wrap justify-center gap-x-4 gap-y-6 rounded-2xl border border-fg/10 bg-[radial-gradient(circle_at_20%_0%,color-mix(in_srgb,var(--color-ac)_16%,transparent),transparent_60%)] px-5 py-9">
       {items.map((x, i) => (
         <li key={x} className="float-chip" style={{
           "--d": (4 + ((i * 7) % 5) * 0.7) + "s",
@@ -123,8 +126,8 @@ function FloatChips({ items, variant }) {
           "--dy": (i % 2 ? -1 : 1) * (6 + ((i * 3) % 7)) + "px",
           "--r": ((i % 3) - 1) * 1.2 + "deg",
         }}>
-          <span className={"inline-flex items-center gap-2 rounded-full border-2 px-4 py-2 text-sm font-semibold transition duration-300 hover:scale-110 hover:shadow-[0_0_18px_var(--color-ac)] " +
-            (pro ? "border-fg bg-pn hover:border-ac hover:text-ac" : "border-ac bg-ac/15 hover:bg-ac hover:text-bg")}>
+          <span className={"inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold backdrop-blur transition duration-300 hover:scale-110 hover:shadow-[0_0_18px_var(--color-ac)] " +
+            (pro ? "border-fg/15 bg-pn/70 hover:border-ac hover:text-ac" : "border-ac/40 bg-ac/15 hover:bg-ac hover:text-bg")}>
             <i aria-hidden="true" className={"size-2 rounded-full " + (pro ? "bg-ac" : "bg-gold")} />
             {x}
           </span>
@@ -137,7 +140,7 @@ function FloatChips({ items, variant }) {
 function Skills({ T, skills }) {
   const group = (title, children, i) => (
     <div data-reveal style={{ animationDelay: i * 80 + "ms" }}>
-      <h3 className="mb-3 font-display text-xl font-bold text-ac">{title}</h3>
+      <h3 className="mb-3 font-display text-xl font-bold tracking-tight text-ac">{title}</h3>
       {children}
     </div>
   );
@@ -147,14 +150,14 @@ function Skills({ T, skills }) {
         <ul className="grid gap-4">
           {skills.map((s, i) => (
             <li key={s.n} data-reveal style={{ animationDelay: i * 90 + "ms" }}>
-              <div className="mb-1 flex justify-between font-semibold"><span>{s.n}</span><span className="text-ac">{s.v}%</span></div>
-              <div className="h-3 border-2 border-fg bg-pn"><div className="bar h-full bg-ac" style={{ "--w": s.v + "%" }} /></div>
+              <div className="mb-1.5 flex justify-between text-sm font-semibold"><span>{s.n}</span><span className="text-ac">{s.v}%</span></div>
+              <div className="h-2.5 overflow-hidden rounded-full bg-fg/10"><div className="bar h-full rounded-full" style={{ "--w": s.v + "%" }} /></div>
             </li>
           ))}
         </ul>
       ), 0)}
       {group(T.proT, <FloatChips items={T.pro} variant="pro" />, 1)}
-{group(T.perT, <FloatChips items={T.per} variant="per" />, 2)}
+      {group(T.perT, <FloatChips items={T.per} variant="per" />, 2)}
       {group(T.langT, <p className="font-semibold">{T.lang}</p>, 3)}
     </div>
   );
@@ -171,16 +174,16 @@ function PdfModal({ doc, T, onClose }) {
   }, [onClose]);
   return (
     <div role="dialog" aria-modal="true" aria-label={doc.title}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-fg/60 p-3 backdrop-blur-sm sm:p-6" onClick={onClose}>
-      <div className="flex h-full max-h-[90dvh] w-full max-w-4xl flex-col border-2 border-fg bg-bg shadow-[8px_8px_0_var(--color-ac)]" onClick={(e) => e.stopPropagation()}>
-        <div className="flex flex-wrap items-center gap-2 border-b-2 border-fg bg-pn px-4 py-3">
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm sm:p-6" onClick={onClose}>
+      <div className="flex h-full max-h-[90dvh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-fg/15 bg-bg shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <div className="flex flex-wrap items-center gap-2 border-b border-fg/10 bg-pn/60 px-4 py-3">
           <b className="mr-auto min-w-0 flex-1 truncate font-display text-lg">{doc.title}</b>
-          <a className={ghost + " !px-3 !py-1.5 text-sm"} href={doc.file} target="_blank" rel="noopener">{T.cvOpen} ↗</a>
-          <a className={solid + " !px-3 !py-1.5 text-sm"} href={doc.file} download>{T.pdfDl} ↓</a>
+          <a className={ghost + " !px-4 !py-1.5 text-sm"} href={doc.file} target="_blank" rel="noopener">{T.cvOpen} ↗</a>
+          <a className={solid + " !px-4 !py-1.5 text-sm"} href={doc.file} download>{T.pdfDl} ↓</a>
           <button className={btn} onClick={onClose} aria-label={T.close}>✕</button>
         </div>
         <iframe title={doc.title} src={doc.file + "#view=FitH"} className="w-full flex-1 bg-white" />
-        <p className="border-t-2 border-fg px-4 py-2 text-xs opacity-70">{T.pdfFail}</p>
+        <p className="border-t border-fg/10 px-4 py-2 text-xs opacity-70">{T.pdfFail}</p>
       </div>
     </div>
   );
@@ -190,16 +193,13 @@ function Projects({ T, open }) {
   return (
     <div className="grid gap-10">
       {T.pr.map((q, i) => (
-        <article key={q.n} data-reveal={i % 2 ? "right" : "left"}
-          className="border-2 border-fg bg-pn shadow-[6px_6px_0_var(--color-line)] transition hover:-translate-y-1 hover:shadow-[8px_8px_0_var(--color-ac)] motion-reduce:transition-none">
-          {q.img && <img src={q.img} alt="" className="aspect-video w-full border-b-2 border-fg object-cover" />}
-          <div className="p-5">
-            <div className="mb-3 text-xs font-semibold uppercase tracking-wider">
-              <span className="border-2 border-ac px-2 py-0.5 text-ac">{q.k}</span>
-            </div>
-            <h3 className="font-display text-2xl font-bold leading-snug">{q.n}</h3>
-            <p className="my-3 opacity-90">{q.d}</p>
-            <ul className="mb-5 flex flex-wrap gap-2">{q.tags.map((t) => <li key={t} className="text-sm text-ac">#{t}</li>)}</ul>
+        <article key={q.n} data-reveal={i % 2 ? "right" : "left"} className={glass + " " + lift + " overflow-hidden"}>
+          {q.img && <img src={q.img} alt="" className="aspect-video w-full border-b border-fg/10 object-cover" />}
+          <div className="p-6">
+            <span className="inline-block rounded-full border border-ac/40 bg-ac/10 px-3 py-0.5 text-xs font-semibold text-ac">{q.k}</span>
+            <h3 className="mt-3 font-display text-2xl font-bold leading-snug tracking-tight">{q.n}</h3>
+            <p className="my-3 opacity-85">{q.d}</p>
+            <ul className="mb-5 flex flex-wrap gap-2">{q.tags.map((t) => <li key={t} className="rounded-full bg-fg/5 px-2.5 py-0.5 text-xs font-semibold text-ac">#{t}</li>)}</ul>
             <div className="flex flex-wrap gap-3">
               {q.pdf && <>
                 <button className={solid} onClick={() => open({ file: q.pdf, title: q.n })}>{T.pdfView} →</button>
@@ -219,11 +219,11 @@ function Awards({ T }) {
     <ul className="grid gap-6 sm:grid-cols-2">
       {T.awards.map((a, i) => (
         <li key={a.t} data-reveal style={{ animationDelay: i * 120 + "ms" }}
-          className="group relative overflow-hidden border-2 border-fg bg-pn p-5 shadow-[6px_6px_0_var(--color-line)] transition hover:-translate-y-1 hover:shadow-[8px_8px_0_var(--color-ac)] motion-reduce:transition-none">
-          <span aria-hidden="true" className="pointer-events-none absolute -right-2 -top-4 font-display text-7xl font-bold text-ac/15 transition group-hover:text-ac/30">{a.y}</span>
+          className={glass + " " + lift + " group relative overflow-hidden p-6"}>
+          <span aria-hidden="true" className="pointer-events-none absolute -right-2 -top-4 font-display text-7xl font-extrabold text-ac/15 transition group-hover:text-ac/30">{a.y}</span>
           <div className="relative">
-            <div className="mb-3 inline-flex items-center gap-2 border-2 border-ac px-2 py-0.5 text-sm font-semibold text-ac"><span aria-hidden="true">★</span>{a.r}</div>
-            <p className="font-display text-xl font-bold leading-snug">{a.t}</p>
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-ac/40 bg-ac/10 px-3 py-0.5 text-sm font-semibold text-ac"><span aria-hidden="true">★</span>{a.r}</div>
+            <p className="font-display text-xl font-bold leading-snug tracking-tight">{a.t}</p>
           </div>
         </li>
       ))}
@@ -243,7 +243,7 @@ function Contact({ T }) {
       {rows.map(([k, v, h], i) => (
         <li key={k} data-reveal style={{ animationDelay: i * 100 + "ms" }}>
           <a href={h} target={h.startsWith("http") ? "_blank" : undefined} rel="noopener"
-            className="flex justify-between gap-3 border-2 border-fg bg-pn px-4 py-3 transition hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--color-ac)] motion-reduce:transition-none">
+            className={glass + " " + lift + " flex justify-between gap-3 px-5 py-3.5"}>
             <span className="opacity-70">{k}</span>
             <span className="break-all text-right font-semibold text-ac">{v}</span>
           </a>
@@ -260,11 +260,11 @@ export default function App() {
   const io = useRef(null);
   const T = data[lang], mn = lang === "mn";
 
-  // layout effect: Hero3D өнгөө уншихаас өмнө data-theme тавигдсан байх ёстой
+  // layout effect: HeroChart өнгөө уншихаас өмнө data-theme тавигдсан байх ёстой
   useLayoutEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
   useEffect(() => { document.documentElement.lang = lang; }, [lang]);
 
-    // Дэлгэцэнд ороход .in нэмж анимэйшн тоглуулна. Бүрэн гарахад хасна, тиймээс дээш доош гүйлгэх бүрт дахин тоглоно
+  // Дэлгэцэнд ороход .in нэмж анимэйшн тоглуулна. Бүрэн гарахад хасна, тиймээс дээш доош гүйлгэх бүрт дахин тоглоно
   useEffect(() => {
     const enter = new IntersectionObserver((es) => es.forEach((e) => {
       const t = e.target;
@@ -286,21 +286,25 @@ export default function App() {
     });
   });
 
-  const nav = [["about", T.aboutT], ["career", T.careerT], ["skills", T.skillsT], ["projects", T.works], ["contact", T.contactT]];
+  const nav = [["about", T.aboutT], ["career", mn ? "Товч намтар" : "Career"], ["projects", T.works]];
 
   return (
-    <div className="min-h-dvh bg-bg font-mono text-[15px] leading-relaxed text-fg">
+    <div className="min-h-dvh font-sans text-[15px] leading-relaxed text-fg">
       <GrowthLine lang={lang} />
 
-      <header className="sticky top-0 z-30 flex items-center gap-3 border-b border-fg/20 bg-bg/80 px-5 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] backdrop-blur">
-        <b className="mr-auto font-display text-xl">{T.name}</b>
-        <nav className="hidden gap-5 text-sm lg:flex">
-          {nav.map(([id, label]) => <a key={id} href={"#" + id} className="hover:text-ac hover:underline">{label}</a>)}
-        </nav>
-        <button className={btn + " font-semibold"} onClick={() => setDoc({ file: data.cv.file, title: "CV" })}>CV</button>
-        <button className={btn} onClick={() => setLang(mn ? "en" : "mn")} aria-label="Language">{mn ? "EN" : "МН"}</button>
-        <button className={btn} onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label="Theme">◐</button>
-      </header>
+      <header className="sticky top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-3 mt-3 flex items-center gap-2 rounded-full border border-fg/10 bg-bg/60 px-4 py-2 shadow-[0_8px_30px_-12px_rgba(0,0,0,.4)] backdrop-blur-xl sm:gap-3 sm:px-5 sm:py-2.5 md:mx-auto md:max-w-5xl">
+  <div className="flex flex-1 items-center">
+    <b className="shrink-0 whitespace-nowrap font-display text-base tracking-tight sm:text-lg">{T.name}</b>
+  </div>
+  <nav className="hidden gap-8 text-sm lg:mx-10 lg:flex xl:gap-12">
+    {nav.map(([id, label]) => <a key={id} href={"#" + id} className="whitespace-nowrap text-fg/70 transition hover:text-ac">{label}</a>)}
+  </nav>
+  <div className="flex flex-1 items-center justify-end gap-2 sm:gap-3">
+    <button className={btn + " font-semibold"} onClick={() => setDoc({ file: data.cv.file, title: "CV" })}>CV</button>
+    <button className={btn} onClick={() => setLang(mn ? "en" : "mn")} aria-label="Language">{mn ? "EN" : "МН"}</button>
+    <button className={btn} onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label="Theme">◐</button>
+  </div>
+</header>
 
       <main>
         {/* Нээлт */}
@@ -308,9 +312,9 @@ export default function App() {
           <div className="absolute inset-0"><HeroChart theme={theme} /></div>
           <div className="relative z-10 mx-auto grid w-full max-w-5xl items-center gap-10 px-5 md:grid-cols-[1fr_auto] md:pl-16">
             <div className="text-center">
-              <h1 key={lang + "n"} className="rise font-display text-3xl font-bold sm:text-5xl">{T.hello}</h1>
-              <p key={lang + "r"} className="rise mt-3 text-lg font-semibold text-ac" style={{ animationDelay: ".12s" }}>{T.role}</p>
-              <div className="rise mt-6 flex flex-wrap justify-center gap-3" style={{ animationDelay: ".36s" }}>
+              <h1 key={lang + "n"} className="rise bg-gradient-to-r from-fg via-ac to-gold bg-clip-text font-display text-4xl font-extrabold leading-tight tracking-tight text-transparent sm:text-6xl">{T.hello}</h1>
+              <p key={lang + "r"} className="rise mt-5 inline-block rounded-full border border-ac/40 bg-ac/10 px-4 py-1.5 text-sm font-semibold text-ac" style={{ animationDelay: ".12s" }}>{T.role}</p>
+              <div className="rise mt-8 flex flex-wrap justify-center gap-3" style={{ animationDelay: ".3s" }}>
                 <button className={solid} onClick={() => setDoc({ file: data.cv.file, title: "CV" })}>{T.cvView}</button>
                 <a className={ghost} href={data.cv.file} download>{T.cvDl} ↓</a>
               </div>
@@ -320,7 +324,7 @@ export default function App() {
             <div className="rise order-first justify-self-center md:order-last" style={{ animationDelay: ".2s" }}>
               <div className="float-chip" style={{ "--d": "6s", "--dx": "0px", "--dy": "-10px", "--r": "0deg" }}>
                 <img src="/img/me.jpg" alt={T.name} width="446" height="1244"
-                  className="h-[46vh] max-h-[560px] w-auto border-2 border-fg bg-black shadow-[8px_8px_0_var(--color-ac)] md:h-[62vh]" />
+                  className="h-[46vh] max-h-[560px] w-auto rounded-3xl border border-fg/15 bg-black shadow-[0_30px_80px_-30px_var(--color-ac)] md:h-[62vh]" />
               </div>
             </div>
           </div>
@@ -329,14 +333,13 @@ export default function App() {
         <Chapter id="about" title={T.aboutT}>
           <p data-reveal className="text-lg">{T.about}</p>
           <p data-reveal className="mt-4 opacity-80" style={{ animationDelay: "120ms" }}>{T.hobby}</p>
-          
         </Chapter>
 
         <Chapter id="career" title={T.careerT}><Timeline T={T} mn={mn} /></Chapter>
         <Chapter id="skills" title={T.skillsT}><Skills T={T} skills={data.skills} /></Chapter>
         <Chapter id="projects" title={T.works}><Projects T={T} open={setDoc} /></Chapter>
         <Chapter id="awards" title={T.awardsT}><Awards T={T} /></Chapter>
-        
+
         <Chapter id="contact" title={T.contactT}>
           <p data-reveal className="mb-5 text-lg">{T.msg}</p>
           <Contact T={T} />

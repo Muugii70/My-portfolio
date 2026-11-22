@@ -1,32 +1,40 @@
 @import "tailwindcss";
 
-/* Палитр: #0f1020 #2f195f #7353ba #faa6ff #efc3f5. static = CSS хувьсагчийг JS уншина */
 @theme static {
-  --color-bg: #f8e9fb;
-  --color-fg: #0f1020;
-  --color-line: #2f195f;
-  --color-ac: #7353ba;
-  --color-gold: #c43ed6;
+  --color-bg: #f6f3ff;
+  --color-fg: #14102b;
+  --color-line: #9d8be0;
+  --color-ac: #6d4ae0;
+  --color-gold: #c026d3;
   --color-pn: #ffffff;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --font-display: "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 [data-theme="dark"] {
-  --color-bg: #0f1020;
-  --color-fg: #efc3f5;
-  --color-line: #7353ba;
-  --color-ac: #faa6ff;
-  --color-gold: #efc3f5;
-  --color-pn: #2f195f;
+  --color-bg: #0a0a12;
+  --color-fg: #ecebf5;
+  --color-line: #6b55b8;
+  --color-ac: #b79cff;
+  --color-gold: #f0abfc;
+  --color-pn: #17142b;
 }
 
-body { margin: 0; background: var(--color-bg); }
-html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body { margin: 0; background: var(--color-bg); font-family: var(--font-sans); }
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+::selection { background: color-mix(in srgb, var(--color-ac) 40%, transparent); }
+
+/* Дэвсгэрийн зөөлөн гэрлийн толбо */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, color-mix(in srgb, var(--color-ac) 24%, transparent), transparent 60%),
+    radial-gradient(50rem 40rem at -10% 65%, color-mix(in srgb, var(--color-gold) 16%, transparent), transparent 60%);
+}
 
 /* Нүүр хэсгийн анимэйшн */
-@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-.rise { animation: rise .6s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .7s cubic-bezier(.2, .8, .2, 1) both; }
 
 /* Scroll-д орж ирэх анимэйшн: .in класс нэмэгдэх бүрт шинээр тоглоно */
 @keyframes rv-up    { from { opacity: 0; transform: translateY(36px) scale(.97); filter: blur(6px); } to { opacity: 1; transform: none; filter: blur(0); } }
@@ -41,7 +49,10 @@ html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
 [data-reveal="right"].in { animation-name: rv-right; }
 
 /* Ур чадварын багана: хэсэг дахин орох бүрт дахин дүүрнэ */
-.bar { width: 0; transition: width 1.4s cubic-bezier(.2, .8, .2, 1) .3s; }
+.bar {
+  width: 0; transition: width 1.4s cubic-bezier(.2, .8, .2, 1) .3s;
+  background-image: linear-gradient(90deg, var(--color-ac), var(--color-gold));
+}
 .in .bar { width: var(--w); }
 
 /* Хөвөгч чипүүд */

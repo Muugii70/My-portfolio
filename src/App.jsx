@@ -304,16 +304,25 @@ export default function App() {
 
       <main>
         {/* Нээлт */}
-        <section className="relative flex min-h-[88vh] items-center overflow-hidden">
+        <section className="relative flex min-h-[88vh] items-center overflow-hidden py-10">
           <div className="absolute inset-0"><HeroChart theme={theme} /></div>
-          <div className="relative z-10 mx-auto w-full max-w-3xl px-5 text-center">
-            <h1 key={lang + "n"} className="rise font-display text-3xl font-bold sm:text-5xl">{T.hello}</h1>
-            <p key={lang + "r"} className="rise mt-3 text-lg font-semibold text-ac" style={{ animationDelay: ".12s" }}>{T.role}</p>
-            <div className="rise mt-6 flex flex-wrap justify-center gap-3" style={{ animationDelay: ".36s" }}>
-              <button className={solid} onClick={() => setDoc({ file: data.cv.file, title: "CV" })}>{T.cvView}</button>
-              <a className={ghost} href={data.cv.file} download>{T.cvDl} ↓</a>
+          <div className="relative z-10 mx-auto grid w-full max-w-5xl items-center gap-10 px-5 md:grid-cols-[1fr_auto] md:pl-16">
+            <div className="text-center">
+              <h1 key={lang + "n"} className="rise font-display text-3xl font-bold sm:text-5xl">{T.hello}</h1>
+              <p key={lang + "r"} className="rise mt-3 text-lg font-semibold text-ac" style={{ animationDelay: ".12s" }}>{T.role}</p>
+              <div className="rise mt-6 flex flex-wrap justify-center gap-3" style={{ animationDelay: ".36s" }}>
+                <button className={solid} onClick={() => setDoc({ file: data.cv.file, title: "CV" })}>{T.cvView}</button>
+                <a className={ghost} href={data.cv.file} download>{T.cvDl} ↓</a>
+              </div>
+              <p className="mt-12 animate-bounce text-sm opacity-70">{mn ? "Доош гүйлгээрэй" : "Scroll down"} ↓</p>
             </div>
-            <p className="mt-12 animate-bounce text-sm opacity-70">{mn ? "Доош гүйлгээрэй" : "Scroll down"} ↓</p>
+
+            <div className="rise order-first justify-self-center md:order-last" style={{ animationDelay: ".2s" }}>
+              <div className="float-chip" style={{ "--d": "6s", "--dx": "0px", "--dy": "-10px", "--r": "0deg" }}>
+                <img src="/img/me.jpg" alt={T.name} width="446" height="1244"
+                  className="h-[46vh] max-h-[560px] w-auto border-2 border-fg bg-black shadow-[8px_8px_0_var(--color-ac)] md:h-[62vh]" />
+              </div>
+            </div>
           </div>
         </section>
 
